@@ -96,7 +96,7 @@
         <th><%= sort_link @search, :lastname, I18n.t(:lastname, scope: [:spree, :print_invoice]) %></th>
         <th><%= sort_link @search, :email, I18n.t(:email, scope: [:spree, :print_invoice]) %></th>
         <th><%= sort_link @search, :total, I18n.t(:total, scope: [:spree, :print_invoice]) %></th>
-        <th><%= sort_link @search, :printed, 'Di-Print?' %></th>
+        <th><%= sort_link @search, :printed, 'Print' %></th>
         <th data-hook="admin_orders_index_header_actions" class="actions"></th>
       </tr>
     </thead>
