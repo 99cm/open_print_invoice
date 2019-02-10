@@ -1,6 +1,6 @@
 Deface::Override.new(
-  virtual_path: 'spree/admin/shared/_order_tabs',
-  name:         'print_invoice_order_tab_links',
+  virtual_path: 'spree/admin/shared/_order_submenu',
   insert_bottom: '[data-hook="admin_order_tabs"]',
+  name:         'print_invoice_order_tab_links',
   partial:      'spree/admin/orders/print_invoice_order_tab_links'
 )

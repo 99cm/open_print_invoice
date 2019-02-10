@@ -8,7 +8,7 @@ module Spree
           next unless settings.has_preference? name.to_param
           settings[name] = value
         end
-        flash[:success] = Spree.t(:successfully_updated, resource: Spree.t(:settings, scope: :print_invoice))
+        flash[:success] = I18n.t('spree.successfully_updated', resource: I18n.t('spree.settings', scope: :print_invoice))
         redirect_to edit_admin_print_invoice_settings_path
       end
     end

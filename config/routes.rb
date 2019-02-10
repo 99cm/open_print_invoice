@@ -1,6 +1,6 @@
-Spree::Core::Engine.add_routes do
+Spree::Core::Engine.routes.draw do
   namespace :admin do
-    # https://github.com/spree/spree/blob/3-0-stable/backend/config/routes.rb#L73
+    # https://github.com/99cm/open/blob/master/backend/config/routes.rb#L78
     resources :orders do
       resources :bookkeeping_documents, only: :index
     end

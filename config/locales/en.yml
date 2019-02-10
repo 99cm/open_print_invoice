@@ -2,49 +2,67 @@
 en:
   spree:
     print_invoice:
-      documents: Documents
-      documents_for_order: "Documents for order %{order_number}"
+      billing_address: 'Bill To:'
       buttons:
         invoice: Print Invoice
         packaging_slip: Print Packaging Slip
+      date: Date
+      document_type: Document Type
+      documents: Documents
+      documents_for_order: "Documents for order %{order_number}"
+      email: Email
+      firstname: First Name
+      invoice: Invoice
+      invoice_date: 'Invoice date: %{date}'
+      invoice_number: 'Invoice number: %{number}'
+      invoice_slip_legend: Invoice/Slip Content
+      invoices: Invoices
+      item_description: Item Description
+      lastnmae: Last Name
+      number: Number
+      of: of
+      on_date: Order Date
+      options: U/M
       order_invoice: Invoice
       order_packaging_slip: Packaging Slip
-      reimbursement_invoice: Reimbursement Invoice
-      invoice: Invoice
-      invoices: Invoices
-      reimbursement: Reimbursement
-      reimbursements: Reimbursements
-      item_name: Item Name or SKU
-      of: of
-      via: via
-      on_date: Order Date
+      order_total: Order Total
       packaging_slip: Packaging Slip
       page: Page
       payment_via: "%{gateway} Online Payment #%{number} on %{date}"
+      pdf_legend: PDF Layout
       preferences:
-        next_number: Print Invoice Next Number
-        use_footer: Use Footer
-        use_page_numbers: Use Page Numbers
         anomaly_message: Order Anomaly Message
+        font_face: Font Face
+        font_size: Font Size
         footer_left: Left Footer Content
         footer_left_info: E.g. Your company name and address.
         footer_right: Right Footer Content
         footer_right_info: E.g. Your phone and email address.
+        logo_path: Print Invoice Logo Path
+        logo_scale: Logo Scale
+        next_number: Print Invoice Next Number
         page_layout: Page Layout
         page_size: Page Size
         print_buttons: Print Buttons
         print_buttons_info: Comma separated list.
-        logo_path: Print Invoice Logo Path
         return_message: Order Return Message
-        font_face: Font Face
-        font_size: Font Size
-        logo_scale: Logo Scale
-        store_pdf: Store PDF files
         storage_path: PDF storage path
+        store_pdf: Store PDF files
+        use_footer: Use Footer
+        use_page_numbers: Use Page Numbers
+      price: Unit Price
+      qty: Qty
+      reimbursement_invoice: Reimbursement Invoice
+      reimbursement: Reimbursement
+      reimbursements: Reimbursements
       settings: Print Invoice Settings
+      sku: Item SKU
+      shipping_address: 'Ship To:'
+      subtotal: Subtotal
+      successfully_updated: Successfully updated
+      tax: Tax
+      tax_rate: Tax Rate
+      total: Total
       unprocessed: Unprocessed
       vat: VAT not applicable
-      pdf_legend: PDF Layout
-      invoice_slip_legend: Invoice/Slip Content
-      invoice_number: 'Invoice number: %{number}'
-      invoice_date: 'Invoice date: %{date}'
+      via: via

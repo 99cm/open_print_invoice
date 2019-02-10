@@ -17,11 +17,11 @@
         <div class="row">
           <div class="date-range-filter col-md-8">
             <div class="form-group">
-              <%= label_tag :q_created_at_gt, Spree.t(:date_range) %>
+              <%= label_tag :q_created_at_gt, I18n.t('spree.date_range') %>
               <div class="row no-padding-bottom">
                 <div class="col-md-6">
                   <div class="input-group">
-                    <%= f.text_field :created_at_gt, class: 'datepicker datepicker-from form-control', value: params[:q][:created_at_gt], placeholder: Spree.t(:start) %>
+                    <%= f.text_field :created_at_gt, class: 'datepicker datepicker-from form-control', value: params[:q][:created_at_gt], placeholder: I18n.t('spree.start') %>
                     <span class="input-group-addon">
                       <i class="icon icon-calendar"></i>
                     </span>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="input-group">
-                    <%= f.text_field :created_at_lt, class: 'datepicker datepicker-to form-control', value: params[:q][:created_at_lt], placeholder: Spree.t(:stop) %>
+                    <%= f.text_field :created_at_lt, class: 'datepicker datepicker-to form-control', value: params[:q][:created_at_lt], placeholder: I18n.t('spree.stop") %>
                     <span class="input-group-addon">
                       <i class="icon icon-calendar"></i>
                     </span>
@@ -42,7 +42,7 @@
 
           <div class="col-md-4">
             <div class="form-group">
-              <%= label_tag :q_number_cont, Spree.t(:printable_number, number: '') %>
+              <%= label_tag :q_number_cont, I18n.t('spree.order_number, number: '') %>
               <%= f.text_field :number_cont, class: 'form-control js-quick-search-target' %>
             </div>
           </div>
@@ -53,21 +53,21 @@
 
           <div class="col-md-4">
             <div class="form-group">
-              <%= label_tag :q_firstname_start, Spree.t(:first_name_begins_with) %>
+              <%= label_tag :q_firstname_start, t('spree.first_name_begins_with') %>
               <%= f.text_field :firstname_start, class: 'form-control' %>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="form-group">
-              <%= label_tag :q_lastname_start, Spree.t(:last_name_begins_with) %>
+              <%= label_tag :q_lastname_start, t('spree.last_name_begins_with') %>
               <%= f.text_field :lastname_start, class: 'form-control' %>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="form-group">
-              <%= label_tag :q_email_cont, Spree.t(:email) %>
+              <%= label_tag :q_email_cont, t('spree.email') %>
               <%= f.text_field :email_cont, class: 'form-control js-filterable' %>
             </div>
           </div>
@@ -82,7 +82,6 @@
     </div>
 
   <% end %>
-  <%= render partial: 'spree/admin/shared/index_table_options', locals: { collection: @bookkeeping_documents } %>
 <% end %>
 
 <% if @bookkeeping_documents.any? %>
@@ -95,7 +94,7 @@
         <th><%= sort_link @search, :firstname, I18n.t(:firstname, scope: [:spree, :print_invoice]) %></th>
         <th><%= sort_link @search, :lastname, I18n.t(:lastname, scope: [:spree, :print_invoice]) %></th>
         <th><%= sort_link @search, :email, I18n.t(:email, scope: [:spree, :print_invoice]) %></th>
-        <th><%= sort_link @search, :total, I18n.t(:total, scope: [:spree, :print_invoice]) %></th>
+        <th><%= sort_link @search, :order_total, I18n.t(:order_total, scope: [:spree, :print_invoice]) %></th>
         <th><%= sort_link @search, :printed, 'Print' %></th>
         <th data-hook="admin_orders_index_header_actions" class="actions"></th>
       </tr>
@@ -104,12 +103,12 @@
     <% @bookkeeping_documents.each do |bookkeeping_document| %>
       <tr data-hook="admin_printables_index_rows" class="<%= cycle('odd', 'even') %>">
         <td><%= l bookkeeping_document.created_at.to_date %></td>
-        <td><%= I18n.t(bookkeeping_document.document_type, scope: [:spree, :print_invoice]) %></td>
+        <td><%= I18n.t(ookkeeping_documents.document_type, scope: [:spree, :print_invoice]) %></td>
         <td><%= bookkeeping_document.number %></td>
         <td><%= bookkeeping_document.firstname %></td>
         <td><%= bookkeeping_document.lastname %></td>
         <td><%= bookkeeping_document.email %></td>
-        <td><%= bookkeeping_document.display_total.to_html %></td>
+        <td><%= bookkeeping_document.display_order_total.to_html %></td>
         <td><%= bookkeeping_document.printed ? "Sudah" : "Belum" %></td>
         <td class='actions actions-1' data-hook="admin_orders_index_row_actions">
           <%= link_to_with_icon "file", "", admin_bookkeeping_document_path(bookkeeping_document, format: :pdf), title: "show_bookkeeping_document_#{bookkeeping_document.id}", no_text: true %>
@@ -120,10 +119,6 @@
   </table>
 <% else %>
   <div class="alert alert-info no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::BookkeepingDocument)) %>,
+    <%= I18n.t('spree.no_resource_found', resource: plural_resource_name(Spree::BookkeepingDocument)) %>,
   </div>
-<% end %>
-
-<% unless order_focused? %>
-  <%= render partial: 'spree/admin/shared/index_table_options', locals: { collection: @bookkeeping_documents, simple: true } %>
 <% end %>
